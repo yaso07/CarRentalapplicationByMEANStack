@@ -1,0 +1,50 @@
+
+::-webkit-inner-spin-button{
+  appearance: none;
+  margin: 0px;
+}
+.box1{
+
+  display: flex;
+
+
+}
+
+.carimage
+{
+
+  margin: 10px;
+  position: absolute;
+  left:50%;
+
+}
+img
+{
+   width: 250px;
+  height: 130px;
+   border-radius: 10px;
+}
+.main
+{
+   padding-top: 110px;
+  background-color: black;
+}
+span,p,h3
+{
+    color:white
+}
+.box{
+
+  position: relative;
+  bottom: 50px;
+  top:0px;
+
+}
+input.ng-touched.ng-valid{
+    border:1px solid green;
+
+}
+input.ng-touched.ng-invalid
+{
+   border:1px solid red;
+}

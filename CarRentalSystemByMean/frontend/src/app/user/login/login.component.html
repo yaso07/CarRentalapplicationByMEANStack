@@ -1,0 +1,74 @@
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+
+
+      <div class="modal-body">
+
+        <div class="modal-box1">
+           <h3>{{currentpage}}</h3>
+           <br>
+           <p>{{content}}</p>
+            <div class="image">
+              <img style="width:250px" [src]="imgSrc" alt=""></div>
+        </div>
+<div class="container">
+          <div class="box" *ngIf="!this.signup">
+
+
+
+
+
+  <form  class="px-4 py-3" [formGroup]="login" (submit)="userLogin(login)" method="post">
+
+
+    <div class="mb-3">
+
+      <input type="text" class="form-control" name="username" minlength="4" formControlName="username" required placeholder="Enter Username" id="exampleDropdownFormEmail1" >
+    </div>
+
+    <div class="mb-3 input1">
+
+      <input type="password" class="form-control" formControlName="password" name="password" required placeholder="Enter Password"  id="exampleDropdownFormPassword1" placeholder="Password">
+    </div>
+
+    <div *ngIf="login.controls['username'].invalid && login.controls['username'].touched" >
+<small class="text-danger" *ngIf="login.controls['username'].errors?.['required']">Please enter username</small>
+<small class="text-danger" *ngIf="login.controls['username'].errors?.['minlength']">Please enter valid usename</small>
+<br>
+</div>
+<div *ngIf="login.controls['password'].invalid && login.controls['password'].touched">
+
+<small class="text-danger"  *ngIf="login.controls['password'].errors?.['required']">
+  please enter your password
+</small>
+</div>
+
+<small class="text-danger" *ngIf="!valid">
+  username or password is wrong
+</small>
+
+    <button type="submit" style="margin-left:90px;margin-top:10px" [disabled]="!login.valid"  class="btn btn-primary">Sign in</button>
+  </form>
+
+  <div class="dropdown-divider"></div>
+
+  <button type="button" style="position:relative;top:10px;left:40px;text-decoration:none"  (click)="navigate()"   class="btn btn-warning"> New User? -> Create Account </button>
+</div>
+<div class="box" *ngIf="this.signup"><app-signup (SwapComponent)="getNavigate($event)"></app-signup></div>
+  </div>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">.</button>
+
+</div>
+
+
+    </div>
+  </div>
+</div>

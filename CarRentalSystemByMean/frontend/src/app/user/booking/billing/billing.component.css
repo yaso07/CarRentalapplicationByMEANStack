@@ -1,0 +1,13 @@
+.offcanvas
+{
+   background-color: #f1f4f8;
+}
+::-webkit-inner-spin-button{
+    appearance: none;
+    margin: 0;
+}
+
+.id>.ng-touched.ng-invalid{
+
+  border: 1px solid red;
+}

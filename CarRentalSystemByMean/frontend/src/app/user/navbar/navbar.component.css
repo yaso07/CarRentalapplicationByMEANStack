@@ -1,0 +1,23 @@
+
+
+
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+
+}
+
+.site-header a{
+  text-decoration: none;
+  font-family:Arial, Helvetica, sans-serif;
+
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown-item:hover
+{
+   background-color: black;
+   color: white;
+}

@@ -1,0 +1,71 @@
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    Reference to the Bing Maps SDK 
+    <script type='text/javascript'
+            src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Au57EVInGcpkukHXtIJ4CwzzL8JLmK3KJ7QQm_KWsg4u8t0EPs5gNp_tys06bEc_' 
+            async defer></script>
+    
+    <script type='text/javascript'>
+    function GetMap()
+    {
+        var map = new Microsoft.Maps.Map('#myMap');
+     
+        //Add your post map load code here.
+    
+    var map;
+        var directionsManager;
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var loc = new Microsoft.Maps.Location(
+                position.coords.latitude,
+                position.coords.longitude);
+
+            //Add a pushpin at the user's location.
+            var pin = new Microsoft.Maps.Pushpin(loc);
+            map.entities.push(pin);
+
+            //Center the map on the user's location.
+            map.setView({ center: loc, zoom: 15 });
+                        
+        });
+            
+            //Load the directions module.
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                //Create an instance of the directions manager.
+                directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+                //Specify where to display the route instructions.
+                directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+
+                //Specify the where to display the input panel
+                directionsManager.showInputPanel('directionsPanel');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="directionsContainer">
+        <div id="directionsPanel"></div>
+        <div id="directionsItinerary"></div>
+    </div>
+    <div id="myMap"></div>
+</body>
+<style>
+    #myMap{
+        
+         height: 100%; 
+         position: relative;
+         left: 400px;
+    }
+    .directionsContainer{
+            width:380px;
+            height:100%;
+            overflow-y:auto;
+            float:left;
+        }
+</style>
+</html> -->

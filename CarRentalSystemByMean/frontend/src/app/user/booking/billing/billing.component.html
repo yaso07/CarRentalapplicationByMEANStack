@@ -1,0 +1,137 @@
+
+<div class="offcanvas offcanvas-end"  style="width:450px" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Details</h5>
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" >
+
+    <div *ngIf="(userData.firstname) && container">
+             <input  type="checkbox" [(ngModel)]="existing" >
+
+        <label for="" >   <h3 style="margin-left: 5px;" class="text-warning"> Existing Address</h3></label>
+
+            <div style="background-color: white;padding:10px">
+
+            <p class="text-primary">{{userData.firstname}},</p>
+            <p class="text-primary">{{userData.address.address1}},{{userData.address.state}}</p>
+            </div>
+            <button style="margin-top: 20px;margin-left:150px;padding:10px" data-bs-dismiss="offcanvas"  routerLink="../../payment/{{this.carService.currentcarid}}" class="btn btn-primary" *ngIf="existing && !router.url.includes('car-for-month')">continue</button>
+            <button *ngIf="existing && router.url.includes('car-for-month')" style="margin-top: 20px;margin-left:150px;padding:10px" data-bs-dismiss="offcanvas"  routerLink="../../../car-for-month/payment/{{this.carService.currentcarid}}" class="btn btn-primary" >continue</button>
+    </div>
+
+
+    <div class="col-md-7 col-lg-8" *ngIf="!existing" style="width:400px;margin-top:20px">
+
+        <form class="needs-validation" [formGroup]="billing" (submit)="addUserDetails()">
+          <div class="row g-3">
+
+
+              <div formGroupName="idProofs">
+<div class="id" >
+
+  <label for="">Aadhar</label>
+  <input style="margin-top: 10px;" class="form-control" pattern="^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$" type="text" formControlName="aadhar" maxlength="12" minlength="12">
+</div>
+
+
+<div class="id" style="margin-top: 10px;">
+  <label for="">Driving Licence</label>
+  <input style="margin-top: 10px;text-transform:uppercase"  class="form-control" type="text"  formControlName="licence" maxlength="15" minlength="15">
+</div>
+
+              </div>
+
+
+
+
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control" id="firstName" pattern="^[a-zA-Z ]*$"  formControlName="firstname" value="" minlength="4" required>
+              <div class="text-danger"  *ngIf="billing.controls['firstname'].touched" >
+
+              <p *ngIf="billing.controls['firstname'].invalid || billing.controls['firstname'].errors?.['required'] || billing.controls['firstname'].errors?.['minlength']">  Valid first name is required.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" pattern="^[a-zA-Z ]*$" formControlName="lastname" value="" minlength="4" required>
+              <div class="text-danger"  *ngIf="billing.get('lastname').touched" >
+               <p *ngIf="billing.get('lastname').invalid || billing.get('lastname').errors?.['required'] || billing.controls['lastname'].errors?.['minlength']"> Valid last name is required.</p>
+              </div>
+            </div>
+
+
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-muted"></span></label>
+              <input type="email" required inputmode="email" class="form-control" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" id="email" formControlName="email" placeholder="you@example.com">
+              <div class="text-danger"   *ngIf="billing.get('email').touched">
+              <p *ngIf="billing.get('email').errors?.['required'] ||billing.get('email').invalid ">  Please enter a valid email </p>
+              </div>
+            </div>
+
+
+
+
+
+
+
+         <div formGroupName="address"  class="row g-3">
+              <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" formControlName="address1" placeholder="1234 Main St" minlength="13" required>
+              <div class="text-danger"  *ngIf="billing.get('address.address1').touched">
+               <p *ngIf="billing.get('address.address1').errors?.['required'] ">Please enter your address.</p>
+               <p *ngIf="billing.get('address.address1').errors?.['minlength'] ">provide valid address</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" formControlName="state" id="state" required>
+                <option value="">Choose...</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Tamilnadu">Tamilnadu</option>
+              </select>
+              <div class="text-danger" *ngIf="billing.get('address.state').touched && billing.get('address.state').errors?.['required'] " >
+                Please provide a valid state.
+              </div>
+            </div>
+
+            <div class="col-md-3" >
+              <label for="zip" class="form-label">Pin</label>
+              <input type="text" pattern="^[0-9]{6}$" class="form-control" id="zip" formControlName="pincode" placeholder="" minlength="6" maxlength="6" required>
+              <div class="text-danger"  *ngIf="billing.get('address.pincode').touched">
+              <p *ngIf=" billing.get('address.pincode').errors?.['required']">  Pin code required</p>
+              <p *ngIf="billing.get('address.pincode').errors?.['minlength'] || billing.get('address.pincode').errors?.['maxlength']">
+                provide valid pincode
+              </p>
+              </div>
+            </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+<br>
+
+           <!-- <button class="w-100 btn btn-primary btn-lg" routerLink="../../../car-for-month/payment/{{this.carService.currentcarid}}" routerLinkActive="router-link-active"   [disabled]="billing.invalid" data-bs-dismiss="offcanvas"  type="submit">Continue to Proceed</button> -->
+
+          <button class="w-100 btn btn-primary btn-lg"   [disabled]="billing.invalid" data-bs-dismiss="offcanvas"  type="submit">Continue to Proceed</button>
+        </form>
+      </div>
+  </div>
+</div>
+
+<!-- routerLink="/booking/payment/{{this.carService.currentcarid}}" -->
+
+

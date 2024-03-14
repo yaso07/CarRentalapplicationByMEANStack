@@ -1,0 +1,17 @@
+.box{
+
+  display: flex;
+}
+.box2{
+  background-color: black;
+   margin-left: 210px;
+   width: 100%;
+ 
+
+
+}
+
+
+label{
+  color: white;
+}

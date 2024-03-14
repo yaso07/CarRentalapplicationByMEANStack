@@ -1,0 +1,29 @@
+
+.container{
+
+   margin-top: 50px;
+}
+.container2
+{
+    margin-left: 50px;
+    padding: 20px;
+}
+.rightcontainer
+{
+     margin-left: 150px;
+    padding: 20px;
+    width:450px
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+i{
+  border:1px solid black;
+  padding:2px;
+  border-radius:5px;
+  color: white;
+  margin-left: 10px;
+
+}

@@ -1,0 +1,159 @@
+<main>
+
+
+
+
+<ul class="navbar sticky-top">
+
+
+      <li class="navbar-nav">
+        <input type="radio" class="btn-check" name="options-outlined" value="processing" [(ngModel)]="currentNav" id="success-outlined" autocomplete="off"
+          checked />
+        <label class="btn btn-outline-success" for="success-outlined">Active Bookings</label>
+      </li>
+      <li class="navbar-nav">
+        <input type="radio" class="btn-check" name="options-outlined"  value="confirmed" [(ngModel)]="currentNav"  id="warning-outlined" autocomplete="off" />
+        <label class="btn btn-outline-warning" for="warning-outlined">Confirmed Bookings</label>
+      </li>
+        <li class="navbar-nav">
+        <input type="radio" class="btn-check" name="options-outlined"  value="delivered" [(ngModel)]="currentNav"  id="secondary-outlined" autocomplete="off" />
+        <label class="btn btn-outline-secondary text-white" for="secondary-outlined">Delivered Bookings</label>
+      </li>
+        <li class="navbar-nav">
+        <input type="radio" class="btn-check" name="options-outlined"  value="cancelled" [(ngModel)]="currentNav"  id="danger-outlined" autocomplete="off" />
+        <label class="btn btn-outline-danger text-white" for="danger-outlined">Cancelled and Returned</label>
+      </li>
+      </ul>
+
+
+
+<div class="container">
+
+<div>
+    <div *ngIf="userBookings.length==0" style="width: 500px;height:400px;text-align:center;margin-top:100px">
+   <div>
+      <h2 class="text-white">No Records</h2>
+   </div>
+   </div>
+     <div style="position: absolute;">
+        <h2 style="margin-top:70px;margin-left:150px">No records</h2>
+      </div>
+
+  <div class="box" *ngFor="let booking of userBookings" style="width: 500px;">
+
+
+    <div class="card booking" *ngIf="currentNav==booking.currentStatus && (!booking.refund)  && booking.currentStatus!='declined'  || ((booking.currentStatus=='processing' || booking.currentStatus=='confirmed' || booking.currentStatus=='cancelled' || booking.currentStatus=='delivered') == (currentNav=='cancelled' && (booking.refund) && booking.refund.refundStatus=='processing')) && booking.currentStatus!='declined'">
+      <div style="padding: 10px;box-shadow:0px 3px 3px grey;opacity:0.6;display:flex;align-items:flex-start">
+        <div>
+      <h3 class="text-secondary">  {{ booking.brand }} {{ booking.model }}</h3></div>
+
+     <div style="margin-left: 150px;">
+       <p style="font-size:20px;" class="text-danger" *ngIf="booking.currentStatus=='cancelled'">cancelled..</p>
+       <p style="font-size:20px;" class="text-danger" *ngIf="booking.currentStatus=='delivered' && booking.CurrentReturnDate"> </p>
+       </div>
+    </div>
+      <div>
+        <div class="headings" style="position: absolute;margin-top:10px">
+          <p>Reserved Date </p>
+          <p>Delivery Date </p>
+          <p>Return Date </p>
+          <p *ngIf="booking.cancelledDate">Cancelled date</p>
+          <p>TotalCost</p>
+        </div>
+
+        <div style="margin-left: 150px;margin-top:10px">
+          <p>{{ booking.reservedDate }}</p>
+          <p class="text-success">{{ booking.rentDate }}</p>
+          <p class="text-danger" style="display: inline-block;" [ngStyle]="{'text-decoration':booking.currentStatus=='delivered' && booking.CurrentReturnDate?'line-through':''}">{{ booking.returnDate }}</p>
+           <span style="text-decoration: none;margin-left:10px" *ngIf="booking.currentStatus=='delivered' && booking.CurrentReturnDate">{{booking.CurrentReturnDate.split('T')}}</span>
+           <p *ngIf="booking.cancelledDate">{{booking.cancelledDate}}</p>
+          <h4>{{ booking.totalCost | currency : "INR" }}</h4>
+        </div>
+        <div>
+          <div *ngIf="currentNav=='processing'" >
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Backdrop" (click)="confirmBooking(booking._id,user._id)">confirm</button>
+                <button style="margin-left: 10px;" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Backdrop" (click)="declineBooking(booking._id,user._id)">Decline</button>
+
+          </div>
+                      <button class="btn btn-primary" *ngIf="currentNav=='cancelled'" data-bs-toggle="modal" (click)="selectedCard(booking)" data-bs-target="#staticBackdrop">Refund details</button>
+        </div>
+      </div>
+    </div>
+</div>
+  </div>
+  <div>
+      <div class="card user">
+           <div style="text-align:center;">
+            <i style="font-size:30px" class="bi bi-person-circle"></i>
+            <h4 class="text-primary">{{user.username}}</h4>
+      </div>
+          <div style="margin-top: 10px;">
+          <div class="headings" style="position:absolute;margin-left:10px">
+              <p>Email</p>
+              <p>Address</p>
+              <p>Mobile</p>
+              <p>Aadhar No</p>
+              <p>Licence</p>
+              <p>Subscription</p>
+          </div>
+          <div style="margin-left:130px">
+
+            <p [ngStyle]="{'color':user.email?'':'red'}">{{user.email?user.email:'None'}}</p>
+            <p [ngStyle]="{'color':user.address?'':'red'}">{{user.address.address1?user.address.address1:'None'}}</p>
+            <p [ngStyle]="{'color':user.mobile?'':'red'}">{{user.mobile?user.mobile:'None'}}</p>
+            <p [ngStyle]="{'color':user.aadhar?'':'red'}">{{user.idProofs.aadhar?user.idProofs.aadhar:'None'}}</p>
+            <p [ngStyle]="{'color':user.licence?'':'red'}">{{user.idProofs.licence?user.idProofs.licence:'None'}}</p>
+            <p [ngStyle]="{'color':user.subscription?'':'red'}">{{user.subscription?user.subscription:'None'}}</p>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+</main>
+
+<div class="modal fade" id="Backdrop" data-bs-backdrop="modal"   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="width:500px;margin-left:70px;margin-bottom:90px;padding:20px">
+
+      <div class="modal-body">
+        <div style="text-align:center;">
+           <img  style="width:100px;height:100px" src="/assets/checkmark.png" alt="">
+           <h3>Done</h3>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Refund Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="position:absolute">
+
+
+             <p>Refund Amount</p>
+             <hr>
+             <p>Account No</p>
+             <p>IFSC</p>
+        </div>
+        <div style="margin-left:200px">
+
+            <p *ngIf="(booking.refund)">{{booking.refund.refundAmount |currency:'INR'}}</p>
+            <hr style="position:relative;right:200px;width:470px">
+            <p>{{user.accountDetails.accountNo}}</p>
+            <p>{{user.accountDetails.ifsc}}</p>
+
+                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Pay</button>
+      </div>
+    </div>
+  </div>
+</div>

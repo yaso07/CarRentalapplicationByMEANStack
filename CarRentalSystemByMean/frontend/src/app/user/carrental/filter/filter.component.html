@@ -1,0 +1,73 @@
+<div class="group">
+      <h5>Filters</h5>
+
+        <label for="input-froup" style="color: gray;font-family:Arial, Helvetica, sans-serif;margin-top:20px"><h6>Search</h6></label>
+       <div class="row input-group" style="width: 250px;border-radius:5px">
+	    <input  class="form-control"   name="datalist" [(ngModel)]="value" (input)="getValue()"  placeholder="Type to search..." aria-describedby="basic-addon1" >
+    	</div>
+
+
+     <br>
+
+      <h6>Brands</h6>
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="brand[0].value"  id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+              Tata
+      </label>
+
+     </div>
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="brand[1].value" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+              Hyundai
+      </label>
+
+     </div>
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="brand[2].value"  id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+              Maruti Suzuki
+      </label>
+
+     </div>
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox"  [(ngModel)]="brand[3].value" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+              Kia
+      </label>
+
+     </div>
+
+
+
+     <br>
+     <h6>Fuel Type</h6>
+     <div>
+
+
+     <input type="checkbox" class="form-check-input" [(ngModel)]="fuelType[0].value">
+     <label for="fuel" class="form-check-label">Petrol</label>
+     </div>
+      <div>
+
+
+     <input type="checkbox" class="form-check-input" [(ngModel)]="fuelType[1].value">
+     <label for="fuel" class="form-check-label">Diesel</label>
+     </div>
+
+
+     <br>
+      <h6>Transmisson</h6>
+      <div>
+        <input type="checkbox" class="form-check-input" [(ngModel)]="transmission[0].value" name="" id="">
+        <label for="form-check-label">Automatic</label>
+      </div>
+       <div>
+        <input type="checkbox" class="form-check-input" [(ngModel)]="transmission[1].value" name="" id="">
+        <label for="form-check-label">Manual</label>
+      </div>
+
+   </div>
+
+

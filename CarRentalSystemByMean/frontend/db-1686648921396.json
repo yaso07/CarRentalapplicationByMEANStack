@@ -1,0 +1,417 @@
+{
+  "car": [
+    {
+      "id": 1,
+      "brand": "Tata",
+      "model": "Safari",
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "image": "Tata safari.webp",
+      "car type": "suv",
+      "rent": "400"
+    },
+    {
+      "id": 2,
+      "brand": "Hyundai",
+      "model": "i20",
+      "fuel": "flexible",
+      "transmission": "Manual",
+      "image": "Hyundai Elite i20-AT.jpg",
+      "car type": "sedan/hatchback",
+      "rent": "430"
+    },
+    {
+      "id": 3,
+      "brand": "Tata",
+      "model": "Nexon",
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "image": "Tata nexon.jpeg",
+      "car type": "suv",
+      "rent": "390"
+    },
+    {
+      "id": 4,
+      "brand": "Hyundai",
+      "model": "Creta",
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "image": "Hyundai creta.jpg",
+      "car type": "suv",
+      "rent": "440"
+    },
+    {
+      "id": 5,
+      "brand": "Hyundai",
+      "model": "Xcent",
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "image": "Hyundai Xcent.jpg",
+      "car type": "suv",
+      "rent": "420"
+    },
+    {
+      "id": 6,
+      "brand": "Maruti Suzuki",
+      "model": "Baleno",
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "image": "Maruti baleno.jpg",
+      "car type": "Hatchback/sedan",
+      "rent": "380"
+    },
+    {
+      "id": 7,
+      "brand": "Kia",
+      "model": "Seltos",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "image": "kia seltos.jpg",
+      "car type": "suv",
+      "rent": "460"
+    },
+    {
+      "id": 8,
+      "brand": "Maruti Suzuki",
+      "model": "Brezza",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "image": "Maruti Vitara Breeza.jpg",
+      "car type": "suv",
+      "rent": "490"
+    },
+    {
+      "id": 9,
+      "brand": "Kia",
+      "model": "Sonet",
+      "fuel": "Diesel",
+      "transmission": "Automatic",
+      "image": "Kia Sonet.jpg",
+      "car type": "suv",
+      "rent": "430"
+    },
+    {
+      "id": 10,
+      "brand": "Tata",
+      "model": "Harrier",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "image": "Tata Harrier.webp",
+      "car type": "suv",
+      "rent": "440"
+    },
+    {
+      "id": 11,
+      "brand": "Hyundai",
+      "model": "Santro",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "image": "Hyundai Santro.jpg",
+      "car type": "suv",
+      "rent": "400"
+    },
+    {
+      "id": 12,
+      "brand": "Hyundai",
+      "model": "Verna",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "image": "Hyundai verna.jpg",
+      "car type": "suv",
+      "rent": "410"
+    },
+    {
+      "id": 13,
+      "brand": "Maruti",
+      "model": "Alto",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "image": "Maruti Alto K10.jpg",
+      "car type": "suv",
+      "rent": "420"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "rentInput": [
+    {
+      "location": "chennai",
+      "rentdate": "2023-06-12T20:29",
+      "returndate": "2023-06-28T20:29",
+      "id": 1
+    }
+  ],
+  "user": [
+    {
+      "username": "yaso",
+      "password": "yaso123",
+      "confirmpassword": "yaso123",
+      "id": 1,
+      "firstname": "yaso",
+      "lastname": "Raman",
+      "email": "yaso@gmail.com",
+      "address": "7/1211 1st street,salem",
+      "state": "Tamilnadu",
+      "pincode": "112211",
+      "userid": null,
+      "mobile": "982988389"
+    },
+    {
+      "username": "virat",
+      "password": "virat123",
+      "confirmpassword": "virat123",
+      "id": 2,
+      "firstname": "virat",
+      "lastname": "anushka",
+      "email": "virat@gmail.com",
+      "address": "11 virat house delhi",
+      "state": "Karnataka",
+      "pincode": "123211",
+      "userid": null,
+      "mobile": "893020201"
+    },
+    {
+      "username": "abcsd",
+      "password": "1234567",
+      "confirmpassword": "1234567",
+      "id": 3
+    },
+    {
+      "username": "jhon",
+      "password": "jhin123",
+      "confirmpassword": "jhon123",
+      "id": 4
+    },
+    {
+      "username": "Keeerthivasan",
+      "password": "Keerthi@24",
+      "confirmpassword": "Keerthi@24",
+      "id": 5,
+      "firstname": "keerthi",
+      "lastname": "vasan",
+      "email": "keerthivasan5801@gmail.com",
+      "address": "12D , Eechanari , Coimbatore",
+      "state": "Tamilnadu",
+      "pincode": "987685",
+      "userid": null
+    }
+  ],
+  "booking": [
+    {
+      "userId": "1",
+      "Brand": "Tata",
+      "Model": "Safari",
+      "rentDate": "Wed 3 May ",
+      "returnDate": "Wed 10 May ",
+      "location": "chennai",
+      "totalDays": 7,
+      "totalCost": 2800,
+      "id": 3
+    },
+    {
+      "userId": "5",
+      "Brand": "Tata",
+      "Model": "Safari",
+      "rentDate": "Wed 17 May ",
+      "returnDate": "Fri 26 May ",
+      "location": "chennai",
+      "totalDays": 9,
+      "totalCost": 3400,
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "Brand": "Tata",
+      "Model": "Safari",
+      "rentDate": "Tue 23 May ",
+      "returnDate": "Wed 31 May ",
+      "location": "chennai",
+      "totalDays": 8,
+      "totalCost": 3300,
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "Brand": "Hyundai",
+      "Model": "Xcent",
+      "rentDate": "Wed 28 June ",
+      "returnDate": "Fri 30 June ",
+      "location": "chennai",
+      "totalDays": 2,
+      "totalCost": 1050,
+      "id": 6
+    }
+  ],
+  "billingDetails": [
+    {
+      "firstname": "sdsadasdas",
+      "lastname": "sasdasdsa",
+      "email": "sadas@wadas",
+      "address": "sdsadsadsadasdsa",
+      "state": "Karnataka",
+      "pincode": "123123",
+      "id": 1
+    },
+    {
+      "firstname": "sadsadsa",
+      "lastname": "saasasdas",
+      "email": "saxsa@sadasd",
+      "address": "saadsadsaddas",
+      "state": "Karnataka",
+      "pincode": "s12312",
+      "id": 2
+    },
+    {
+      "firstname": "cscascasas",
+      "lastname": "sasadsad",
+      "email": "sadsadsa@ssdsacas",
+      "address": "sadsadsdsajdjsakd",
+      "state": "Karnataka",
+      "pincode": "123123",
+      "id": 3
+    },
+    {
+      "firstname": "ajshcbasj",
+      "lastname": "jkscsacjas",
+      "email": "jsajsxasxk@ska",
+      "address": "ajkjsxaskjxaksjh",
+      "state": "Karnataka",
+      "pincode": "122322",
+      "id": 4
+    },
+    {
+      "firstname": "ckdncdskj",
+      "lastname": "sjdnsakdnsakj",
+      "email": "jksandsakjn@kjsdnekj",
+      "address": "jckscnsdkcjnsdjkn",
+      "state": "Karnataka",
+      "pincode": "122132",
+      "userid": null,
+      "id": 5
+    },
+    {
+      "firstname": "dscsdcndjk",
+      "lastname": "xcnsdkcnjk",
+      "email": "sajndsakjn@wkjnqwdkj",
+      "address": "asjkjnsakjdnks",
+      "state": "Karnataka",
+      "pincode": "123123",
+      "userid": 1,
+      "id": 6
+    },
+    {
+      "holderName": "skdfsjdfkdsj",
+      "cardNumber": "1231 2312 3",
+      "expireDate": "23",
+      "cvv": 1231,
+      "id": 7
+    }
+  ],
+  "bidding": [
+    {
+      "carid": "2",
+      "amount": "6000",
+      "accepted": "yes",
+      "carModel": "i20",
+      "carBrand": "Hyundai",
+      "actualAmount": 9030,
+      "id": 1
+    },
+    {
+      "carid": "1",
+      "amount": "2500",
+      "accepted": "yes",
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 2800,
+      "id": 2
+    },
+    {
+      "carid": "1",
+      "amount": "2000",
+      "accepted": false,
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 2800,
+      "id": 3
+    },
+    {
+      "carid": "1",
+      "amount": "2500",
+      "accepted": "yes",
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 2800,
+      "id": 4
+    },
+    {
+      "carid": "1",
+      "amount": "2900",
+      "accepted": "no",
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 3600,
+      "id": 5
+    },
+    {
+      "carid": "1",
+      "amount": "3100",
+      "accepted": "yes",
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 3600,
+      "id": 6
+    },
+    {
+      "carid": "2",
+      "amount": "-5000",
+      "accepted": "yes",
+      "carModel": "i20",
+      "carBrand": "Hyundai",
+      "actualAmount": -5590,
+      "id": 7
+    },
+    {
+      "carid": "1",
+      "amount": "3000",
+      "accepted": "yes",
+      "carModel": "Safari",
+      "carBrand": "Tata",
+      "actualAmount": 3200,
+      "id": 8
+    },
+    {
+      "carid": "5",
+      "amount": "1000",
+      "accepted": false,
+      "carModel": "Xcent",
+      "carBrand": "Hyundai",
+      "actualAmount": 840,
+      "id": 9
+    },
+    {
+      "carid": "5",
+      "amount": "750",
+      "accepted": "yes",
+      "carModel": "Xcent",
+      "carBrand": "Hyundai",
+      "actualAmount": 840,
+      "id": 10
+    }
+  ]
+}

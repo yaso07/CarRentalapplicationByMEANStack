@@ -1,0 +1,37 @@
+
+*
+{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+.membership{
+
+  display: flex;
+  justify-content: space-evenly;
+
+ height: 600px;
+ background-color: rgb(237, 233, 225);
+
+}
+
+.membership>div
+{
+   margin-top: 50px;
+
+   width: 350px;
+   text-align: center;
+   padding: 30px;
+   box-shadow: 10px 19px 39px grey;
+   border: 1px solid black;
+   background-image:linear-gradient(to right,#8f8f90,#2c3e50);
+   height: 500px;
+   border-radius: 10px;
+
+
+}
+span{
+  float: left;
+}
+i{
+   font-size: 20px;
+}

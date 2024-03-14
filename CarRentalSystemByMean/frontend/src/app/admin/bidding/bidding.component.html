@@ -1,0 +1,50 @@
+
+
+
+
+
+<main>
+
+     <div class="d-flex flex-column align-items-stretch" style="width: 380px;overflow-y:scroll" class="leftbox">
+        <a onclick="visible()" href="" class="d-flex align-items-center flex-shrink-2 p-3 link-dark text-decoration-none border-bottom">
+          <svg class="bi me-2" width="30" height="24"></svg>
+          <span style="color:wheat" class="fs-7 fw-semibold">recent biddings</span>
+        </a>
+
+        <div *ngFor="let bidding of biddingDetails" class="list-group list-group-flush border-bottom "  id="acti">
+
+
+
+          <a [ngStyle]="{background:bidding._id == biddingid ? 'grey': 'white'}" (click)="selectedBidding(bidding)" class="list-group-item list-group-item-action py-3 lh-tight act"  aria-current="true">
+            <div class="d-flex w-100 align-items-center justify-content-between">
+              <strong class="mb-1">{{bidding._id}}</strong>
+               <p>{{bidding.carBrand}} {{bidding.carModel}}</p>
+
+
+              <small></small>
+            </div>
+          </a>
+
+
+            </div>
+      </div>
+
+     <div class="b-example-divider"></div>
+
+ <div class="box2" *ngIf="container">
+    <h4 class="text-white">Actual  Amount : <span class="text-primary">{{bidding.actualAmount|currency:'INR'}}</span></h4>
+    <h4 class="text-white">Bidding Amount : <span class="text-primary">{{bidding.amount|currency:'INR'}}</span></h4>
+    <div style="display: flex;justify-content:space-between;margin-top:50px">
+    <button class="btn btn-success" (click)="accept(bidding._id)">Accept</button>
+    <button class="btn btn-danger" (click)="reject(bidding._id)">decline</button>
+    </div>
+</div>
+
+
+</main>
+
+
+
+
+
+

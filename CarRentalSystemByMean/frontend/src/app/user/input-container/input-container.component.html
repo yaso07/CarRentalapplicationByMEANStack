@@ -1,0 +1,43 @@
+
+
+<form [formGroup]="inputform" (submit)="onsubmit(inputform)" action="BookingDetailsServlet" method="post">
+   <ul class="nav nav-pills  navbar-light input-group mb-3">
+
+    <li class="nav-item">
+     <div class="col input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Location</span>
+    <input class="form-control" list="datalistOptions"  name="options" formControlName="location" value=""  id="exampleDataList" placeholder="Type to search..." aria-describedby="basic-addon1" >
+<datalist id="datalistOptions">
+  <option value="chennai">
+  <option value="coimbatore">
+  <option value="Salem">
+  <option value="Banglore">
+
+</datalist>
+{{location}}
+</div>
+    </li>
+    <li>
+         <div class="col">
+    <input type="datetime-local" style="width:230px" [min]="rentDateStart"  #date  (input)="setMinDate(date)"   formControlName="rentdate"   name="start" class="form-control" required>
+
+</div>
+</li>
+<li>
+<div class="col">
+    <input type="datetime-local"  style="width:230px"  [min]="returnDateStart"   formControlName="returndate"     name="end" class="form-control" required>
+
+</div>
+</li>
+<li>
+<div class="col">
+    <button routerLink="car" [disabled]="!inputform.valid" style="width: 200px;padding:6px;" type="submit"  class="btn btn-primary">search</button>
+</div>
+    </li>
+  </ul>
+
+
+ </form>
+
+ <br>
+

@@ -1,0 +1,111 @@
+
+
+<main [ngStyle]="{'height':bookingDetails.length<=3?'500px':'fit-content'}">
+
+<div class="box" >
+
+
+    <div class="card">
+        <div class="card-title" style="padding: 20px;">
+            <h4>Username</h4>
+        </div>
+       <a  routerLink="../profile"><div class="link">Profile</div></a>
+       <a> <div class="link" routerLink="history">Booking History</div> </a>
+        <a (click)="logout()"><div class="link">Logout</div></a>
+        <hr>
+
+    </div>
+
+    <div class="bookings">
+
+
+        <table class="table" >
+
+           <tr>
+            <th>Car Model</th>
+            <th>Booking Id</th>
+            <th>Rent Date</th>
+            <th>Return Date</th>
+            <th>Location</th>
+            <th>Total Cost</th>
+            <th>Status</th>
+</tr>
+
+            <tr *ngFor="let booking of bookingDetails">
+
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'" class="text-primary">{{booking.brand}} {{booking.model}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'" >{{booking._id}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'" >{{booking.rentDate}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'" >{{booking.returnDate}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'"  class="text-danger">{{booking.location}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'"  class="text-primary">{{booking.totalCost|currency:'INR'}}</td>
+                <td *ngIf="booking.currentStatus!='cancelled' && booking.currentStatus!='delivered'">
+
+                  <span [class]="processing" *ngIf="booking.currentStatus=='processing'">{{booking.currentStatus}}</span>
+                  <span [class]="declined" style="font-size: 20px;" *ngIf="booking.currentStatus=='declined'">{{booking.currentStatus}}</span>
+                   <span [class]="confirmed" *ngIf="booking.currentStatus=='confirmed'">{{booking.currentStatus}}</span>
+                  <button *ngIf="booking.currentStatus!='declined'" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Backdrop" (click)="setBookingId(booking._id,booking)"  style="margin-left: 5px;color:white">Click to cancel</button></td>
+
+              </tr>
+
+
+        </table>
+ <h1 class="text-secondary" *ngIf="bookingDetails.length==0" style="margin-top:100px;margin-left:200px">No Records <br>
+ </h1>
+    </div>
+
+  </div>
+
+
+<div class="modal fade" id="Backdrop" data-bs-backdrop="modal"   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="margin-left:70px;margin-bottom:90px;padding:20px">
+
+      <div class="modal-body" style="display:flex;">
+
+        <div style="text-align:center;">
+            <i class="bi bi-caret-down-fill" *ngIf="!refundTerms" (click)="changeView()" style="position: absolute;left:80%"></i>
+            <i class="bi bi-caret-up-fill"  *ngIf="refundTerms"  (click)="changeView()" style="position: absolute;left:80%"></i>
+
+          <p class="text-primary"> {{user.refundStatus}} </p>
+          <div>
+
+              <form #accountDetails="ngForm" >
+                  <label for="account">Account No</label>
+                     <input style="text-decoration: none;" class="form-control" min="9999999999"  [(ngModel)]="accountNo" name="accountNo" type="number" required>
+                     <label style="margin-top:5px;" for="">IFSC</label>
+                     <input class="form-control" style="text-transform:uppercase" type="text"  [(ngModel)]="ifsc" minlength="10" maxlength="10" name="ifsc"  required>
+                 </form>
+
+          </div>
+           <p style="margin-top:10px">Are you sure to cancel the booking</p>
+           <div style="display: flex;justify-content:space-evenly;margin-right:30px;">
+            <br>
+
+            <div><button class="btn btn-success" (click)="cancelBooking(bookingId)" data-bs-dismiss="modal" [disabled]="accountDetails.invalid"   >confirm</button></div>
+            <div><button class="btn btn-danger" data-bs-dismiss="modal">close</button></div>
+           </div>
+          </div>
+            <div *ngIf="refundTerms" class="card refund" >
+                    <h2 style="margin-left: 50px;">Terms Of Service</h2>
+<li>
+
+            cancellation of bookings are within 2 days, your full amount will be refunded
+            otherwise the amount will get reduced based on the time taken from the delivary date
+
+</li>
+<li>service charges are non-refundable</li>
+<li>Refund Amount gets automatically credited to your bank account within a couple of days</li>
+
+    </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+</main>

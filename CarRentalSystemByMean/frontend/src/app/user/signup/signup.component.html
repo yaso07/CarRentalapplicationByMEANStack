@@ -1,0 +1,66 @@
+
+
+
+
+<div style="position:absolute;width:100px;left:385px;bottom:330px" >
+ </div>
+
+  <form  class="px-4 py-3" [formGroup]="signupform" (submit)="addUser(signupform)" method="post">
+    <div class="mb-3">
+
+        <input type="text" class="form-control"  name="username" minlength="4" formControlName="username"   placeholder="Enter Username" id="exampleDropdownFormEmail1" >
+  </div>
+
+    <div class="mb-3 input1">
+
+      <input type="password" class="form-control" formControlName="password" minlength="6" value="mark"  placeholder="Enter Password" name="password" id="password1" >
+    </div>
+     <div class="mb-3 input1">
+
+      <input type="password" class="form-control" formControlName="confirmpassword"     placeholder="Confirm Password" name="confirm_pass" id="password2" >
+
+    </div>
+
+
+    <button type="submit" id="button" [disabled]="!signupform.valid" aria-disabled="true"   class="btn btn-primary">Create Account</button>
+    <br>
+    <button type="button" (click)="navigate()" style="position:relative;left:40px;top:30px" class="btn btn-warning">Existing user? Log in</button>
+    <br>
+    <br>
+    <br>
+    <p style="display: none" id="length">password length must be 8 characters</p>
+       <div *ngIf="signupform.controls['username'].invalid && signupform.controls['username'].touched ">
+      <small class="text-danger" *ngIf="signupform.controls['username'].errors?.['required']">
+
+         please enter username
+      </small>
+      <small class="text-danger" *ngIf="signupform.controls['username'].errors?.['minlength']">
+            username should be minimum 4 characters
+         </small>
+
+  </div>
+    <div *ngIf="signupform.controls['password'].invalid && signupform.controls['password'].touched ">
+      <small class="text-danger" *ngIf="signupform.controls['password'].errors?.['required']">
+
+         please enter password
+      </small>
+      <small class="text-danger" *ngIf="signupform.controls['password'].errors?.['minlength']">
+            password should be minimum 6 characters
+         </small>
+
+  </div>
+  <div *ngIf="signupform.controls['confirmpassword'].invalid && signupform.controls['confirmpassword'].touched ">
+      <small class="text-danger" *ngIf="signupform.controls['confirmpassword'].errors?.['required']">
+
+         please enter confirm password
+      </small>
+
+
+  </div>
+   <small class="text-danger" *ngIf="!(signupform.controls['password'].value===signupform.controls['confirmpassword'].value) && signupform.controls['confirmpassword'].touched  && signupform.controls['confirmpassword'].valid">
+    both passwords are not matched
+
+   </small>
+
+  </form>
+

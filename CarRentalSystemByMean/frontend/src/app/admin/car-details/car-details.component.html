@@ -1,0 +1,30 @@
+
+<div>
+    <button class="btn btn-warning" routerLink="../addcar" [routerLinkActive]="['active']" style="position:relative;top:20px;left:30px">+Add car</button>
+</div>
+<table class="table" >
+           <tr>
+            <th>CarId</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Fuel Type</th>
+            <th>Transmission</th>
+            <th>Car Type</th>
+            <th>Rent</th>
+            <th></th>
+</tr>
+
+            <tr *ngFor="let car of carDetails">
+              <td>{{car._id}}</td>
+              <td>{{car.brand}}</td>
+              <td>{{car.model}}</td>
+              <td>{{car.fuel}}</td>
+              <td>{{car.transmission}}</td>
+              <td>{{car.carType}}</td>
+              <td>{{car.rent|currency:'INR'}}</td>
+              <td><button class="text-white btn btn-warning" routerLink="../update-car/{{car._id}}">Update</button></td>
+
+              </tr>
+
+
+        </table>

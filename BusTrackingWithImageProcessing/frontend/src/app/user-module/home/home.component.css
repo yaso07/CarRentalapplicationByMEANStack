@@ -1,0 +1,13 @@
+ #myMap{
+
+         height: 100%;
+         position: relative;
+         width: 880px;
+         left: 400px;
+    }
+    .directionsContainer{
+            width:380px;
+            height:100%;
+            overflow-y:auto;
+            float:left;
+        }

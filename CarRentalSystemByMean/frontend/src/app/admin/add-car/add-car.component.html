@@ -1,0 +1,75 @@
+
+<div class="box">
+
+  <form [formGroup]="addCarForm" (submit)="addCar()">
+    <div class="form">
+    <label for="">Brand</label>
+      <input class="form-control" pattern="^[a-zA-Z ]*$" type="text" name="" minlength="3" id="" formControlName="brand" required>
+      </div>
+      <div  class="form">
+    <label for="">Model</label>
+      <input class="form-control" pattern="^[a-zA-Z ]*$" type="text" name="" id="" minlength="4" formControlName="model">
+      </div>
+
+      <div  class="form">
+    <label for="">Fuel Type</label>
+           <select class="form-control" name="" id=""  formControlName="fuel">
+            <option value="">Choose</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+           </select>
+      </div>
+      <div  class="form">
+    <label for="">Transmission</label>
+        <select class="form-control" name="" id="" formControlName="transmission">
+            <option value="">Choose</option>
+            <option value="Automatic">Automatic</option>
+            <option value="Manual">Manual</option>
+        </select>
+      </div >
+      <div  class="form">
+      <label for="">Image</label>
+      <input class="form-control" style="width:300px" type="file" #image (input)="imageSrc(image)" name="" id="" formControlName="image">
+      </div>
+
+       <div  class="form">
+    <label for="">Car Type</label>
+           <select class="form-control" name="" id=""  formControlName="carType">
+              <option value="">Choose</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">suv</option>
+           </select>
+      </div>
+      <div class="form">
+        <label for="">Car Count</label>
+          <input class="form-control" type="number" formControlName="carCount">
+      </div>
+      <div  class="form">
+    <label for="">Rent Per Day</label>
+      <input class="form-control" type="number" name="" minlength="3" id="" formControlName="rent">
+      </div>
+
+      <div  class="form">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Backdrop" [disabled]="addCarForm.invalid" type="submit">Submit</button>
+      </div>
+  </form>
+</div>
+
+
+<div class="modal fade" id="Backdrop" data-bs-backdrop="modal"   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="width:500px;margin-left:70px;margin-bottom:90px;padding:20px">
+
+      <div class="modal-body">
+        <div style="text-align:center;">
+           <img  style="width:100px;height:100px" src="/assets/checkmark.png" alt="">
+           <h3>Added</h3>
+          </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>

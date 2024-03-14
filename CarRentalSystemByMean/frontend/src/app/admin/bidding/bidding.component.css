@@ -1,0 +1,33 @@
+
+main
+{
+   display: flex;
+
+
+}
+   .box2
+   {
+
+         margin-left: 200px;
+         padding: 30px;
+         align-items: flex-start;
+         width:400px;
+         margin-top: 80px;
+
+
+
+  }
+  .box2>h4
+  {
+    margin-top: 30px;
+  }
+a:active{
+
+  background-color: red;
+}
+.leftbox{
+
+   height: 600px;
+   overflow-y: scroll;
+}
+

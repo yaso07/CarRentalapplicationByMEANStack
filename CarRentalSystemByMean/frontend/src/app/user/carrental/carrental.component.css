@@ -1,0 +1,86 @@
+body{
+
+  margin: 0%;
+  overflow-x: hidden;
+}
+.box{
+
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+
+
+
+.inside
+{
+
+ display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+   width: 80%;
+  position: relative;
+  left: 1%;
+  bottom: 17px;
+  padding: 10px;
+  background-color: #5b85bb;
+
+
+}
+
+
+.carimage
+{
+  width: 250px;
+  height: 100px;
+  margin: 10px;
+}
+.card{
+
+    width: 300px;
+    box-shadow: 3px 3px 7px rgb(185, 183, 183);
+    padding: 10px;
+    border-radius: 10px;
+    height: 350px;
+}
+.cardslot
+{
+
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  left: 0%;
+  margin-right: 4px;
+  padding: 5px;
+
+
+}
+.card-body
+{
+   width:200px;
+
+
+}
+h6{
+  font-family: 'Times New Roman', Times, serif;
+  color: grey;
+}
+.form-check>label
+{
+   font-family:Arial, Helvetica, sans-serif;
+   margin-left: 7px;
+}
+.group>h5{
+    font-family: 'Times New Roman', Times, serif;
+    color: #696a6b;
+    font-weight: bolder;
+}
+.notAvailable{
+  opacity: 0.2;
+
+}
+
+

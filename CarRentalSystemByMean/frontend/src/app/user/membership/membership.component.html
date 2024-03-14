@@ -1,0 +1,65 @@
+<body>
+
+
+<div class="membership">
+
+   <div>
+
+     <h3 style="font-weight: bolder;">Standard Subscription</h3>
+      <h4 class="text-warning" style="float: right;">6 Months</h4>
+      <br>
+     <hr class="bg-lg">
+
+
+   <span>  <i class="text-success bi bi-check-lg"></i> 25% cashbacks</span>
+
+
+
+
+
+
+   
+<br>
+<span><i class="text-success bi bi-check-lg"></i> 10 kms free Charges</span>
+<br>
+<span><i class="text-success bi bi-check-lg"></i> Monthly special Coupons</span>
+<br>
+
+
+<span><i class="text-danger bi bi-x"></i> Luxury cars</span>
+<br>
+
+<span><i class="text-danger bi bi-x"></i> Extension for payments</span>
+
+
+  <button style="width: 100%;margin-top:120px"  routerLink="/subscription-payment" (click)="selectedMemberShip('standard')"  class="btn btn-danger">{{2500|currency:'INR'}}</button>
+</div>
+
+
+   <div>
+         <h3 style="font-weight: bolder;">Premium Subscription</h3>
+         <h4 class="text-warning"  style="float: right;">1 Year</h4>
+        <br>
+          <hr class="bg-lg">
+
+
+   <span>  <i class="text-success bi bi-check-lg"></i> 30% cashbacks</span>
+<br>
+<span><i class="text-success bi bi-check-lg"></i> 15 kms free Charges</span>
+<br>
+<span><i class="text-success bi bi-check-lg"></i> weekly special Coupons</span>
+<br>
+
+
+<span><i class="text-success bi bi-check-lg"></i> Luxury cars</span>
+<br>
+
+<span><i class="text-success bi bi-check-lg"></i> Extension for payments</span>
+
+  <button style="width: 100%;margin-top:120px" routerLink="/subscription-payment" (click)="selectedMemberShip('Premium')"   class="btn btn-danger">{{6000|currency:'INR'}}</button>
+   </div>
+
+
+</div>
+
+</body>

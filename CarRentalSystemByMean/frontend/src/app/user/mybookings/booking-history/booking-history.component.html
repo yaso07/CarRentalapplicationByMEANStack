@@ -1,0 +1,178 @@
+<div class="main" [ngStyle]="{'height':bookingDetails.length<=1?'600px':'fit-content'}">
+
+
+  <h1 class="text-white" *ngIf="bookingDetails.length==0" style="text-align:center">No Records</h1>
+
+  <div class="container" *ngFor="let booking of bookingDetails">
+
+
+    <div class="box" [ngClass]="{box:booking.currentStatus=='delivered'}"
+      *ngIf="booking.currentStatus=='cancelled' || booking.currentStatus=='delivered' ">
+        <hr style="color: white;">
+      <div class="box1">
+
+        <div>
+          <h3>{{ booking.brand }} {{ booking.model }}</h3>
+        </div>
+        <div *ngFor="let car of carDetails">
+          <div class="carimage" *ngIf="booking.model == car.model">
+            <img class="card-img-top" src="./assets/car images/{{ car.image }}" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p>{{ booking.totalCost | currency : "INR" }}</p>
+      </div>
+      <br>
+      <div *ngIf="booking.currentStatus=='delivered'">
+        <div *ngIf="!booking.refund">
+          <p class="text-success">Delivered On {{booking.rentDate}}</p>
+          <p class="text-primary">ReturnDate {{booking.returnDate}}</p>
+          <a data-bs-toggle="collapse" href="#{{booking._id}}" role="button" (click)="return(booking)"
+            aria-expanded="false" aria-controls="collapseWidthExample">Return</a> <span> policy available</span>
+          <div style="min-height: 120px;">
+            <div *ngIf="bookingId==booking._id" class="collapse collapse-horizontal" id="{{booking._id}}">
+              <div class="card card-body" style="width: 500px;background-color:black">
+                <div>
+                  <div>
+                    <label for="" class="text-white">Return date </label>
+                    <input style="width: 220px;display:inline-block;margin-left:20px" [(ngModel)]="currentReturnDate"
+                      type="datetime-local" class="form-control" [min]="startDate" [max]="returnDate">
+                  </div>
+                  <br>
+                  <p>Refund Amount: <span class="text-primary">{{refundAmount|currency:'INR'}}</span></p>
+                  <button class="btn btn-secondary" (click)="setBookingId(booking._id)"
+                    [disabled]="currentReturnDate==undefined" data-bs-toggle="modal"
+                    data-bs-target="#return">confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="booking.refund">
+          <p class="text-success">Delivered On {{booking.rentDate}}</p>
+          <p>Return <span class="text-primary">{{(booking.returnDate)}}</span></p>
+
+          <div>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#{{booking._id}}" role="button"
+              aria-expanded="false" aria-controls="collapseWidthExample">
+                 refund Details <i class="m-2 bi bi-caret-down-square"></i>
+            </a>
+            <div style="min-height: 120px;">
+              <div class="collapse collapse-horizontal" id="{{booking._id}}">
+                <div class="card card-body" style="width: 300px;background-color:black">
+                  <div>
+
+                    <p>Refund Amount : <span class="text-primary">{{booking.refund.refundAmount |currency:'INR'}}</span></p>
+                    <p>Status : <span class="text-warning">{{booking.refund.refundStatus}}</span></p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p *ngIf="booking.currentStatus=='cancelled'">
+        booking cancelled On
+        <span style="font-weight: bolder"> {{ booking.cancelledDate }}</span><br>
+        <span class="text-danger"  *ngIf="booking.currentStatus=='cancelled'"
+          [ngStyle]="{'text-decoration':booking.currentStatus=='cancelled' ? 'line-through' :'none'}">
+          delivery date :{{booking.rentDate}}
+        </span>
+      </p>
+
+      <p>
+        <a *ngIf="booking.currentStatus!='delivered'" class="btn btn-primary" (click)="refund.refund(booking,'none')"
+          data-bs-toggle="collapse" href="#{{ booking._id }}" role="button" aria-expanded="false"
+          aria-controls="collapseWidthExample">
+          refund Details <i class="m-2 bi bi-caret-down-square"></i>
+        </a>
+      </p>
+      <div style="min-height: 10px">
+        <div *ngIf="this.refund.bookingId==booking._id" class="collapse collapse-horizontal" id="{{ booking._id }}">
+          <div class="card card-body" style="width: 400px;background-color:black">
+            <div>
+              <div>
+                <p>
+
+                  Reserved Date :
+                  <span style="
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana,
+                        sans-serif;
+                      font-weight: bolder;">{{ refund.reservedDate }}</span>
+                </p>
+
+                <p>Refund Amount : <span class="text-primary">{{ refund.refundAmount |currency:'INR' }} </span><span
+                    class="text-warning" style="margin-left: 20px;">{{user.refundStatus}}</span></p>
+                    <p>Status : {{booking.refund.refundStatus}}</p>
+              </div>
+              <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Backdrop">Refund Terms</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="Backdrop" data-bs-backdrop="modal" tabindex="-1" aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="width:500px;margin-left:70px;margin-bottom:90px;padding:20px;">
+
+      <div class="modal-body">
+        <div>
+          <h2 style="margin-left: 50px;">Terms of Service</h2>
+          <li>
+
+            cancellation of bookings are within 2 days, your full amount will be refunded
+            otherwise the amount will get reduced based on the time taken from the delivary date
+
+          </li>
+          <li>service charges are non-refundable</li>
+          <li>Refund Amount gets automatically credited to your bank account within a couple of days</li>
+
+
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="return" data-bs-backdrop="modal" tabindex="-1" aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="width:500px;margin-left:70px;margin-bottom:90px;padding:20px;">
+
+      <div class="modal-body">
+        <form #accountDetails="ngForm">
+          <label for="account">Account No</label>
+          <input style="text-decoration: none;margin-top:5px" class="form-control" min="9999999999"
+            [(ngModel)]="accountNo" name="accountNo" type="number" required>
+          <label style="margin-top:5px;" for="">IFSC</label>
+          <input style="margin-top:5px" style="text-transform:uppercase" class="form-control" type="text" minlength="10"
+            [(ngModel)]="ifsc" maxlength="10" name="ifsc" required>
+        </form>
+        <div style="display: flex;justify-content:space-around;margin-top:30px">
+          <div><button class="btn btn-success" (click)="bookingStatus()" data-bs-dismiss="modal"
+              [disabled]="accountDetails.invalid">confirm</button></div>
+          <div><button class="btn btn-danger" data-bs-dismiss="modal">close</button></div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>

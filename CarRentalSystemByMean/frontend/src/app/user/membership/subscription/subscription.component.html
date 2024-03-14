@@ -1,0 +1,115 @@
+ <div class="container" style="display:flex;flex-direction:row;padding:20px; background-color: #f1f4f8;">
+
+  <div class="container2" style="width:400px">
+
+          <h4 class="mb-3">Payment</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" disabled required>
+              <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check">
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" disabled required>
+              <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+  <form [formGroup]="payment" (ngsubmit)="addSubscription()">
+          <div class="row gy-3">
+            <div class="col-md-8">
+              <label for="cc-name" class="form-label">Name on card</label>
+              <input type="text" class="form-control" id="cc-name" formControlName="holderName" minlength="6"  required>
+              <small class="text-muted" *ngIf="!payment.controls['holderName'].touched">Full name as displayed on card</small>
+              <div *ngIf="payment.controls['holderName'].touched">
+                <small class="text-danger" *ngIf="payment.controls['holderName'].errors?.['required']">Name on card is required</small>
+                <small class="text-danger" *ngIf="payment.controls['holderName'].errors?.['minlength']">Enter valid Holder Name</small>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <label for="cc-number" class="form-label">Debit card number</label>
+              <input type="text" class="form-control" #value  [(ngModel)]="cardNumber" (input)="validateCard(value)"   formControlName="cardNumber" id="cc-number" minlength="10" required>
+              <div *ngIf="payment.controls['cardNumber'].touched">
+               <small class="text-danger" *ngIf="payment.controls['cardNumber'].errors?.['required']"> Debit card number is required</small>
+               <small class="text-danger" *ngIf="payment.controls['cardNumber'].value!=null && payment.controls['cardNumber'].value.replaceAll(' ','').length>16">
+                    Enter the valid number
+               </small>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+                <label for="cc-expiration" class="form-label">Expiration</label>
+
+               <div style="display: flex;">
+               <select class="form-select" formControlName="expireDate"  >
+                     <option value="">Month</option>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+
+                <select class="form-select" formControlName="expireDate">
+                  <option value="">Year</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                    <option value="25"> 2025</option>
+                    <option value="26"> 2026</option>
+                    <option value="27"> 2027</option>
+                    <option value="28"> 2028</option>
+                </select>
+</div>
+              <div   *ngIf="payment.controls['expireDate'].touched">
+               <small class="text-danger"  *ngIf="payment.controls['expireDate'].errors?.['required']">  Expiration date required</small>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input type="number" class="form-control" formControlName="cvv"  required>
+              <div *ngIf="payment.controls['cvv'].touched">
+                <small class="text-danger" *ngIf="payment.controls['cvv'].errors?.['required']">Enter the cvv</small>
+                <small class="text-danger" *ngIf="payment.controls['cvv'].value!=null && payment.controls['cvv'].value.toString().length>3">
+                   Enter the valid cvv
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Backdrop" (click)="addSubscription()"  [disabled]="!payment.valid" type="submit">Continue to checkout</button>
+        </form>
+      </div>
+
+
+<div class="modal fade" id="Backdrop" data-bs-backdrop="modal"   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="width:500px;margin-left:70px;margin-bottom:90px;padding:20px">
+
+      <div class="modal-body">
+        <div style="text-align:center;">
+           <img  style="width:100px;height:100px" src="/assets/checkmark.png" alt="">
+           <h3>Subscription added</h3>
+          </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>

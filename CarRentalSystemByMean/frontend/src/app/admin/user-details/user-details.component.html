@@ -1,0 +1,31 @@
+
+<div class="box">
+<table class="table" >
+           <tr>
+            <th>UserId</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>state</th>
+            <th>Mobile</th>
+            <th>Subscription</th>
+            <th></th>
+</tr>
+
+            <tr *ngFor="let user of userDetails">
+
+              <td>{{user._id}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.address.address1}}</td>
+              <td>{{user.address.state}}</td>
+              <td>{{user.mobile}}</td>
+              <td>{{user.subscription}}</td>
+              <td><a class="btn btn-warning" routerLink="../bookings/{{user._id}}" style="background-color: rgb(236, 236, 0)">More</a></td>
+
+
+              </tr>
+
+
+        </table>
+</div>

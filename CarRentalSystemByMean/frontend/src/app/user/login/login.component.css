@@ -1,0 +1,55 @@
+.modal-body
+{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.modal-box1
+{
+  width: 300px;
+  padding: 10px;
+
+}
+
+.image
+{
+   margin-top:100px;
+
+}
+.modal-content{
+
+
+  width: 500px;
+  height: 500px;
+
+}
+.container{
+  position: relative;
+  bottom: 16px;
+  height: 498.5px;
+  left: 10px;
+  background-color: #f1f4f8;
+}
+
+.box
+{
+
+  position: relative;
+
+  top:80px;
+
+  width: 300px;
+  height: fit-content;
+
+
+}
+.btn-close
+{
+   position: absolute;
+   width: 30px;
+   height: 10px;
+   color: red;
+   left: 580px;
+}
+

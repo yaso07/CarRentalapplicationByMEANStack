@@ -1,0 +1,102 @@
+
+.body
+{
+  margin: 0px;
+  overflow: hidden;
+}
+.carousel{
+
+   display: flex;
+   flex-direction: col;
+   position: relative;
+
+}
+#slide{
+
+   overflow: hidden;
+   margin-top: 90px;
+ 
+}
+
+.cardslot{
+
+     display: flex;
+     flex-direction: row;
+     padding: 10px;
+     flex-wrap: wrap;
+     margin-top:40px;
+     width: 400px;
+
+
+
+ }
+  .cardslot >div{
+     margin: 10px;
+     width:390px;
+ }
+  img{
+       border-image-outset: 0cm;
+        width: 700px;
+
+
+
+
+
+
+
+  }
+ h4{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 20px;
+     position: absolute;
+     top:50px;
+
+ }
+ .cardslot>.box1
+ {
+
+    padding: 30px;
+    border-radius:10%;
+    height: 590px;
+    width: 400px;
+    border:2px solid #f1f4f8;
+    box-shadow: 10px 10px 5px #f1f4f8;
+    background-color: #f1f4f8;
+
+
+ }
+ .box1>div
+ {
+     padding: 20px;
+     margin-top: 10px;
+     border-radius: 5px;
+     box-shadow: 4px 4px 4px white;
+
+ }
+ .box1>div>a{
+
+     position: relative;
+     left: 90%;
+     font-size: larger;
+
+ }
+ .box1>div>p{
+    font-weight:bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+ }
+ .image>a
+ {
+     position: relative;
+     bottom: 50px;
+     width: 500px;
+     left: 70px;
+ }
+ .box{
+    background-color: red;
+ }
+ .dropdown-menu a:hover
+ {
+    background-color:grey;
+ }
+

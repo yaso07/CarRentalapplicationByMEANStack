@@ -1,0 +1,65 @@
+
+ 
+th,td{
+
+  color: white;
+  border:1px solid white
+}
+
+.table
+{
+
+    border: 1px solid black;
+    border-style: dotted;
+    width: 80%;
+    margin: 50px;
+
+}
+th
+{
+
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid grey;
+    border-left-style: dotted;
+    border-block-start-style: dotted;
+      border-right-style: dotted;
+    border-block-start-width: 2px;
+     border-inline-end-width: 3px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    padding: 10px;
+
+   color: white;
+
+
+
+}
+td
+{
+   font-family: Arial, Helvetica, sans-serif;
+   border: 1px solid grey;
+   text-align: center;
+      border-left-style: dotted;
+    border-block-start-style: dotted;
+     border-right-style: dotted;
+    border-block-start-width: 2px;
+     border-left-width: 2px;
+    border-right-width: 2px;
+
+    padding: 10px;
+    color: white;
+}
+tr
+{
+
+    border-block-end-style: dotted;
+
+
+     border-block-end-width: 2px;
+    border-color: grey;
+    border-left: 2px;
+
+
+
+}
